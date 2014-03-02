@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+#container {
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.facebook_authentication{
+}

@@ -8,7 +8,20 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+  <div class="twelve columns offset-by-four">
+      <div id="facebook-authentication">
+        <% if current_user %>
+          Welcome <strong><%= current_user.name %></strong>!
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <% end %>
+      </div>
+
+    <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

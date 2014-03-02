@@ -3,8 +3,8 @@ class CreatePlayers < ActiveRecord::Migration
     create_table :players do |t|
 
       t.string :name
-      t.string :skill_level
-      t.text :playing_location
+      t.string :skill
+      t.belongs_to :user
 
       t.timestamps
     end

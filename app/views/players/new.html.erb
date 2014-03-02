@@ -1,0 +1,7 @@
+<h2> LET THE GAMES BEGIN! </h2>
+
+<% if current_user %>
+  <%= button_to "Create Game", games_path, method: :post %>
+  <%= button_to "Join Game", games_path, method: :get %>
+  <%= button_to "Profile", player_path(id: current_user.uid),   method: :get %>
+<% end %>

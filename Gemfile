@@ -27,6 +27,7 @@ gem 'turbolinks'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'simple_form'
+gem 'gmaps4rails'
 
 group :development do
   gem 'pry-byebug'

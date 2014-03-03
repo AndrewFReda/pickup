@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      binding.pry
       if user.player.nil?
         player = Player.new
         player.name = user.name

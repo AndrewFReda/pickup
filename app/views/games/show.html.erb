@@ -1,0 +1,33 @@
+<table>
+  <tr>
+    <td> Sport: </td>
+    <td> <%= "#{@game.sport}" %> </td>
+  </tr>
+  <tr>
+    <td> Location: </td>
+    <td> <%= "#{@game.location}" %> </td>
+  </tr>
+  <tr>
+    <td> DateTime: </td>
+    <td> <%= "#{@game.date_time}" %> </td>
+  </tr>
+  <tr>
+    <td> Players: </td>
+    <% @game.players.each do |player| %>
+      <td> <%= "#{player.name}" %> </td>
+    <% end %>
+  </tr>
+  <tr>
+    <td> Max Game Size: </td>
+    <td> <%= "#{@game.game_size}" %> </td>
+  </tr>
+  <tr>
+    <% if !@game.is_full? %>
+      <td> <%= "INVITE FRIENDS SECTION HERE" %> </td>
+    <% end %>
+  </tr>
+</table>
+
+</br>
+<%= link_to 'Back', root_url %>
+

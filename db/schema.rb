@@ -14,8 +14,10 @@
 ActiveRecord::Schema.define(version: 20140302014531) do
 
   create_table "games", force: true do |t|
+    t.string   "sport"
     t.string   "location"
     t.datetime "date_time"
+    t.integer  "game_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

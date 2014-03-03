@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <td> Name: </td>
+    <td> <%= "#{@player.name}" %> </td>
+  </tr>
+  <tr>
+    <td> Skill: </td>
+    <td> <%= "#{@player.skill || 'Not set'} " %> </td>
+  </tr>
+  <tr>
+    <td> Games: </td>
+    <% @player.games.each do |game| %>
+      <td> <%= "#{game.to_s}" %> </td>
+    <% end %>
+  </tr>
+  <tr>
+    <td> 
+      <%= link_to "Edit", edit_player_path(id: @player.id) %> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to "Disconnect Facebook Account", signout_path, id: "sign_out" %>
+    </td>
+  </tr>
+</table>
+
+</br>
+<%= link_to 'Back', root_url %>
+

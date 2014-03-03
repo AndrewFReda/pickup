@@ -1,0 +1,15 @@
+<%= simple_form_for @player do |f| %>
+  <%= f.input :name %>
+  <%= f.input :skill %>
+  <%= f.button :submit %>
+<% end %>
+  <%= "Games:" %>
+  </br>
+  <% @player.games.each do |game| %>
+    <%= "#{game.to_s}" %>
+    <%= button_to 'Leave Game', url_for(action: 'leave_game', id: @player.id, game_id: game.id) %>
+  <% end %>
+
+</br>
+<%= link_to 'Back', root_url %>
+

@@ -1,0 +1,18 @@
+<%= simple_form_for @game do |f| %>
+  <%= "Match Details" %>
+  <%= f.input :sport, collection: ["basketball", "football", "hockey"] %>
+  <%= f.input :location %>
+  <%= f.input :date_time %>
+  <%= "Team Details" %>
+  <%= f.input :game_size %>
+  <% if !@game.is_full? %>
+    <%= "INVITE FRIENDS SECTION HERE" %>
+    </br>
+  <% end %>
+
+  <%= f.button :submit %>
+<% end %>
+
+</br>
+<%= link_to 'Back', root_url %>
+

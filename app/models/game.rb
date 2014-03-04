@@ -1,5 +1,15 @@
 class Game < ActiveRecord::Base
   has_and_belongs_to_many :players
+  before_save :set_game_size
+  before_save :add_current_player
+
+  def set_game_size
+    self.game_size ||= 4
+  end
+
+  def add_current_player
+    players << Player.find(admin_id)
+  end
 
   def has_player(user)
     players.include? user

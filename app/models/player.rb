@@ -3,12 +3,17 @@ class Player < ActiveRecord::Base
 
 
   def leave_game(game_id)
-    games.delete game_id
+    game = Game.find game_id
+    if id == game.admin_id
+      Game.destroy game_id
+    else
+      games.delete game_id
+    end
   end
 
   def join_game(game_id)
     game = Game.find game_id
-    games.push game
+    games << game
   end
 
 end

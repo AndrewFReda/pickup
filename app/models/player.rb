@@ -6,4 +6,9 @@ class Player < ActiveRecord::Base
     games.delete game_id
   end
 
+  def join_game(game_id)
+    game = Game.find game_id
+    games.push game
+  end
+
 end

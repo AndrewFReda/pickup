@@ -2,7 +2,7 @@
   <%= "Match Details" %>
   <%= f.input :sport, collection: ["basketball", "football", "hockey"] %>
   <%= f.input :location %>
-  <%= f.input :date_time %>
+  <%= f.input :date_time, as: :datetime %>
   <%= "Team Details" %>
   <%= f.input :game_size %>
   <% if !@game.is_full? %>

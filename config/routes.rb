@@ -5,6 +5,7 @@ Pickup::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   match 'players/:id/leave/:game_id', to: 'players#leave_game', via: [:get, :post]
+  match 'players/:id/join/:game_id', to: 'players#join_game', via: [:get, :post]
 
   resources :games
   resources :players

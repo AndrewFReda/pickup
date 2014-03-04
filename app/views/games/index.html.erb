@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th> Game </th>
+    <th> Spots Remaining </th>
+    <th>  </th>
+  </tr>
+  <% @games.each do |game| %>
+  <tr>
+    <td> <%= "#{game.to_s}" %> </td>
+    <td> <%= "#{game.game_size - game.players.count}" %> </td>
+    <td>
+      <% if !game.has_player(current_user.player) %>
+        <%= button_to 'Join Game', url_for(controller: 'players', action: 'join_game', id: current_user.player.id, game_id: game.id) %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</br>
+<%= link_to 'Back', root_url %>

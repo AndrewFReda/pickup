@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
 
   def index
+    @players = Player.all
   end
 
   def show
@@ -27,7 +28,13 @@ class PlayersController < ApplicationController
   def leave_game
     @player = Player.find params[:id]
     @player.leave_game params[:game_id]
-    redirect_to player_path
+    redirect_to edit_player_path
+  end
+
+  def join_game
+    @player = Player.find params[:id]
+    @player.join_game params[:game_id]
+    redirect_to games_path
   end
 
   private

@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
 
   def index
+    @games = Game.all
   end
   
   def show
@@ -14,6 +15,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.players.push current_user.player
+    @game.game_size ||= 4
     if @game.save
       redirect_to game_path(id: @game.id)
     else

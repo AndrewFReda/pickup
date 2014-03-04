@@ -7,6 +7,7 @@ class Game < ActiveRecord::Base
     self.game_size ||= 4
   end
 
+  # Add admin as current player since only admins can create a game
   def add_current_player
     players << Player.find(admin_id)
   end

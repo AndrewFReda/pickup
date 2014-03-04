@@ -1,3 +1,5 @@
+<h2> PLAYERS#SHOW </h2>
+
 <table>
   <tr>
     <td> Name: </td>
@@ -14,17 +16,19 @@
     <% end %>
   </tr>
   <tr>
+    <td> </td>
     <td> 
-      <%= link_to "Edit", edit_player_path(id: @player.id) %> 
+      <%= link_to "Edit", edit_player_path(id: @player.id), class: 'button' %> 
     </td>
   </tr>
   <tr>
+    <td> </td>
     <td>
-      <%= link_to "Disconnect Facebook Account", signout_path, id: "sign_out" %>
+      <%= link_to "Disconnect Facebook Account", signout_path, id: "sign_out", class: 'button' %>
     </td>
   </tr>
 </table>
 
 </br>
-<%= link_to 'Back', root_url %>
+<%= link_to 'Back', root_url, class: 'button' %>
 

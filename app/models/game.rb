@@ -11,10 +11,4 @@ class Game < ActiveRecord::Base
     game_size && (players.count < game_size)
   end
 
-  def to_s
-    date = "#{date_time.day}/#{date_time.month}"
-    time = "#{date_time.hour}:#{date_time.min}"
-    "#{time} on #{date} @ #{location}"
-  end
-
 end

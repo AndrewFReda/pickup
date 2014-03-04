@@ -1,3 +1,5 @@
+<h2> GAMES#NEW </h2>
+
 <%= simple_form_for @game do |f| %>
   <%= "Match Details" %>
   <%= f.input :sport, collection: ["basketball", "football", "hockey"] %>
@@ -14,5 +16,5 @@
 <% end %>
 
 </br>
-<%= link_to 'Back', root_url %>
+<%= link_to 'Back', root_url, class: 'button' %>
 

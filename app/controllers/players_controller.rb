@@ -9,7 +9,13 @@ class PlayersController < ApplicationController
   end
 
   def new
-    @player = Player.new
+    # if there is no current player, then set a new one
+    # otherwise redirect past FB sign in
+    if current_user && current_user.player
+      redirect_to url_for(controller: 'players', action: 'lobby', id: @current_user.player.id)
+    else
+      @player = Player.new
+    end
   end
 
   def edit
@@ -35,6 +41,10 @@ class PlayersController < ApplicationController
     @player = Player.find params[:id]
     @player.join_game params[:game_id]
     redirect_to games_path
+  end
+
+  def lobby
+    @player = Player.find params[:id]
   end
 
   private

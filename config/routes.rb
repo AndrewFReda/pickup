@@ -7,6 +7,8 @@ Pickup::Application.routes.draw do
   match 'players/:id/leave/:game_id', to: 'players#leave_game', via: [:get, :post]
   match 'players/:id/join/:game_id', to: 'players#join_game', via: [:get, :post]
 
+  match '/players/:id/lobby', to: 'players#lobby', via: [:get, :post]
+
   resources :games
   resources :players
   root to: 'players#new'

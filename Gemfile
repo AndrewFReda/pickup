@@ -28,6 +28,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'gmaps4rails'
+gem 'lolcommits'
 
 group :development do
   gem 'pry-byebug'

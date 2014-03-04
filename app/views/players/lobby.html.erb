@@ -1,0 +1,7 @@
+<h2> PLAYERS#LOBBY </h2>
+
+<% if current_user %>
+  <%= button_to "Create Game", new_game_path, method: :get %>
+  <%= button_to "Join Game", games_path, method: :get %>
+  <%= button_to "Profile", player_path(id: current_user.player.id),   method: :get %>
+<% end %>

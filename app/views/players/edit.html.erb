@@ -1,3 +1,5 @@
+<h2> PLAYERS#EDIT </h2>
+
 <%= simple_form_for @player do |f| %>
   <%= f.input :name %>
   <%= f.input :skill %>
@@ -6,10 +8,10 @@
   <%= "Games:" %>
   </br>
   <% @player.games.each do |game| %>
-    <%= "#{game.to_s}" %>
+    <%= "#{game.location}" %>
     <%= button_to 'Leave Game', url_for(action: 'leave_game', id: @player.id, game_id: game.id) %>
   <% end %>
 
 </br>
-<%= link_to 'Back', root_url %>
+<%= link_to 'Back', root_url, class: 'button' %>
 

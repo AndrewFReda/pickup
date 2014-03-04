@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20140302014531) do
     t.string   "location"
     t.datetime "date_time"
     t.integer  "game_size"
+    t.integer  "admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

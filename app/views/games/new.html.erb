@@ -1,10 +1,13 @@
+<h2> GAMES#NEW </h2>
+
 <%= simple_form_for @game do |f| %>
   <%= "Match Details" %>
   <%= f.input :sport, collection: ["basketball", "football", "hockey"] %>
   <%= f.input :location %>
-  <%= f.input :date_time, as: :datetime %>
+  <%= f.input :date_time %>
   <%= "Team Details" %>
   <%= f.input :game_size %>
+  <%= f.hidden_field :admin_id, value: current_user.player.id %>
   <% if !@game.is_full? %>
     <%= "INVITE FRIENDS SECTION HERE" %>
     </br>
@@ -14,5 +17,5 @@
 <% end %>
 
 </br>
-<%= link_to 'Back', root_url %>
+<%= link_to 'Back', root_url, class: 'button' %>
 

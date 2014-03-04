@@ -1,11 +1,5 @@
-<h2> LET THE PICKUP GAMES BEGIN! </h2>
+<h2> Let the Games Begin! </h2>
 
-<% if current_user %>
-  <%= button_to "Create Game", new_game_path, method: :get %>
-  <%= button_to "Join Game", games_path, method: :get %>
-  <%= button_to "Profile", player_path(id: current_user.player.id),   method: :get %>
-<% else %>
-  <div id="facebook-authentication">
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  </div>
-<% end %>
+<div id="facebook-authentication">
+  <%= link_to image_tag("facebook-logo.png"), "/auth/facebook", id: "sign_in" %>
+</div>

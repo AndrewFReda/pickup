@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
       if user.player.nil?
         player = Player.new
         player.name = user.name
+        # TODO remove user_id?
         player.user_id = user.id
         player.save!
         user.player = player

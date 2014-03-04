@@ -1,5 +1,16 @@
 class Game < ActiveRecord::Base
   has_and_belongs_to_many :players
+  before_save :set_game_size
+  before_save :add_current_player
+
+  def set_game_size
+    self.game_size ||= 4
+  end
+
+  # Add admin as current player since only admins can create a game
+  def add_current_player
+    players << Player.find(admin_id)
+  end
 
   def has_player(user)
     players.include? user
@@ -9,12 +20,6 @@ class Game < ActiveRecord::Base
   # than game_size associated with this game
   def is_full?
     game_size && (players.count < game_size)
-  end
-
-  def to_s
-    date = "#{date_time.day}/#{date_time.month}"
-    time = "#{date_time.hour}:#{date_time.min}"
-    "#{time} on #{date} @ #{location}"
   end
 
 end

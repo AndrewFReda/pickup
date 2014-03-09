@@ -2,7 +2,7 @@
 
 <%= simple_form_for @player do |f| %>
   <%= f.input :name %>
-  <%= f.input :skill %>
+  <%= f.input :skill, collection: ["rookie", "intermediate", "expert"] %>
   <%= f.button :submit %>
 <% end %>
   <%= "Games:" %>

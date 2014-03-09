@@ -9,6 +9,8 @@ Pickup::Application.routes.draw do
 
   match '/players/:id/lobby', to: 'players#lobby', via: [:get, :post]
 
+  match '/location', to: 'games#location', via: [:get, :post]
+
   resources :games
   resources :players
   root to: 'players#new'

@@ -21,6 +21,15 @@ class GamesController < ApplicationController
     end
   end
 
+  def location
+    @games = Game.all
+    @hash = Gmaps4rails.build_markers(@games) do |game, marker|
+      lat_lng = game.location.split ','
+      marker.lat lat_lng[0].to_f
+      marker.lng lat_lng[1].to_f
+    end
+  end
+
   private
   def game_params
     params.require(:game).permit(:sport, :location, :date_time, :game_size, :admin_id, :player_ids => [])

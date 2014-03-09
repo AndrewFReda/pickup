@@ -12,13 +12,13 @@
 
   <% @player.games.each do |game| %>
   <tr>
-    <td> <%= "#{game.location}" %> </td>
+    <td> <%= "#{game.location.name}" %> </td>
     <td>
       <%= button_to 'Leave Game', url_for(action: :leave_game, id: @player.id, game_id: game.id) %>
     </td>
 
     <% if(game.admin_id == @player.id) %>
-      <td> <%= "#{game.location}" %> </td>
+      <td> <%= "#{game.location.name}" %> </td>
       <td>
         <%= link_to 'Edit Game', url_for(action: :edit, controller: :games, id: game.id), 'data-no-turbolink' => true %>
       </td>

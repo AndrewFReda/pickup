@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
-  has_and_belongs_to_many :players
   has_and_belongs_to_many :players, uniq: true
+  has_one :venue
+
   before_save :set_game_size
   before_save :add_current_player
 

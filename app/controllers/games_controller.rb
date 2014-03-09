@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find params[:id]
     binding.pry
-    if @game.update game_params
+    if @game.update game_params 
       redirect_to url_for(controller: :players, action: :manage_games, id: @game.admin_id)
     else
       render edit_game_path
@@ -39,9 +39,8 @@ class GamesController < ApplicationController
   def location
     @games = Game.all
     @hash = Gmaps4rails.build_markers(@games) do |game, marker|
-      lat_lng = game.location.split ','
-      marker.lat lat_lng[0].to_f
-      marker.lng lat_lng[1].to_f
+      marker.lat game.location.lat
+      marker.lng game.location.lng
     end
   end
 

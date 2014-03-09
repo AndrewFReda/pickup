@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302014531) do
+ActiveRecord::Schema.define(version: 20140309224813) do
 
   create_table "games", force: true do |t|
     t.string   "sport"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20140302014531) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "venues", force: true do |t|
+    t.string   "name"
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

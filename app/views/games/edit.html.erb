@@ -7,7 +7,8 @@
   <div style='width: 800px;'>
     <div id="geolocation" style='width: 500px; height: 400px;'></div>
   </div>
-  <%= f.hidden_field :location, id: 'location' %>
+  <%= f.input :name %>
+  <%= f.hidden_field :lat_lng, id: 'lat_lng' %>
   <%= f.input :admin_id, collection: @game.players %>
 
   <%= f.button :submit %>
@@ -38,10 +39,11 @@
     if(navigator.geolocation)
       navigator.geolocation.getCurrentPosition(displayOnMap);
 
-    var loc = <%=raw @game.location.split ',' %>;
+    var mlat = <%=raw @game.location.lat %>;
+    var mlng = <%=raw @game.location.lng %>;
     var marker = handler.addMarker({
-      lat: loc[0],
-      lng: loc[1]
+      lat: mlat,
+      lng: mlng
     });
     google.maps.event.addListener(handler.getMap(), 'click', function(event) {
       var lat = event.latLng.lat();
@@ -74,9 +76,9 @@
     handler.getMap().setZoom(14);
   };
 
-  function setGameLocation(latLng){
+  function setGameLocation(lat_lng){
     $(document).ready(function(){
-      $("#location").val(latLng);
+      $("#lat_lng").val(lat_lng);
     });
   };
       

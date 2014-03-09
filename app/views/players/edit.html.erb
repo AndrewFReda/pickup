@@ -5,13 +5,7 @@
   <%= f.input :skill, collection: ["rookie", "intermediate", "expert"] %>
   <%= f.button :submit %>
 <% end %>
-  <%= "Games:" %>
-  </br>
-  <% @player.games.each do |game| %>
-    <%= "#{game.location}" %>
-    <%= button_to 'Leave Game', url_for(action: 'leave_game', id: @player.id, game_id: game.id) %>
-  <% end %>
 
 </br>
-<%= link_to 'Back', root_url, class: 'button' %>
+<%= link_to 'Back', url_for(action: :show, id: @player.id), class: 'button' %>
 

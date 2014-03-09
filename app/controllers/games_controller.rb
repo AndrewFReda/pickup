@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   end
   
   def show
-    @game = Game.find(params[:id])
+    # TODO: This should use game_params for strong parameters
+    @game = Game.find params[:id]
   end
 
   def new
@@ -13,11 +14,25 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params)
+    @game = Game.new game_params
     if @game.save
       redirect_to game_path(id: @game.id)
     else
       render new_game_path
+    end
+  end
+
+  def edit
+    @game = Game.find params[:id]
+  end
+
+  def update
+    @game = Game.find params[:id]
+    binding.pry
+    if @game.update game_params
+      redirect_to url_for(controller: :players, action: :manage_games, id: @game.admin_id)
+    else
+      render edit_game_path
     end
   end
 

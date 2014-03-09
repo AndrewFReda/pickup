@@ -10,21 +10,19 @@
     <td> <%= "#{@player.skill || 'Not set'} " %> </td>
   </tr>
   <tr>
-    <td> Games: </td>
-    <% @player.games.each do |game| %>
-      <td> <%= "#{game.location}" %> </td>
-    <% end %>
-  </tr>
-  <tr>
     <td> </td>
     <td> 
-      <%= link_to "Edit", edit_player_path(id: @player.id), class: 'button' %> 
+      <%= link_to "Edit Profile", edit_player_path(id: @player.id) %>
     </td>
   </tr>
   <tr>
+  <tr> 
+    <td> </td>
+    <td> <%= link_to "My Games", url_for(action: :manage_games, id: @player.id) %> </td>
+  </tr>
     <td> </td>
     <td>
-      <%= link_to "Disconnect Facebook Account", signout_path, id: "sign_out", class: 'button' %>
+      <%= link_to "Disconnect Facebook Account", signout_path, id: "sign_out" %>
     </td>
   </tr>
 </table>

@@ -1,1 +1,1 @@
-Rails app for any type of pickup game.
+Rails app for any type of Pickups game.

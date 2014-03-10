@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Pickup::Application.load_tasks
+Pickups::Application.load_tasks

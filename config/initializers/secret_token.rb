@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Pickup::Application.config.secret_key_base = '6faf6fa13626463813f795c528e0caa8705cbb43d8f1769bbd5afdf280cef95f94206bd049d82cc321a572a08b0eebfe0a4279eb43e8d631c95d695eff4ac33d'
+Pickups::Application.config.secret_key_base = '6faf6fa13626463813f795c528e0caa8705cbb43d8f1769bbd5afdf280cef95f94206bd049d82cc321a572a08b0eebfe0a4279eb43e8d631c95d695eff4ac33d'

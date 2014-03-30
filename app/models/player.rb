@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  has_and_belongs_to_many :games, uniq: true
+  has_and_belongs_to_many :games, -> { uniq }
 
 
   def leave_game(game_id)

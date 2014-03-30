@@ -4,7 +4,7 @@
   <tr>
     <th> Date </th>
     <th> Time </th>
-    <th> Location </th>
+    <th> Location Name </th>
     <th> Spots Remaining </th>
     <th>  </th>
   </tr>
@@ -12,7 +12,7 @@
   <tr>
     <td> <%= "#{game.date_time.day}/#{game.date_time.month}" %> </td>
     <td> <%= "#{game.date_time.hour}:#{game.date_time.min}" %> </td>
-    <td> <%= "#{game.location}" %> </td>
+    <td> <%= "#{game.location_name}" %> </td>
     <td> <%= "#{game.game_size - game.players.count}" %> </td>
     <td>
       <% if !game.has_player(current_user.player) %>

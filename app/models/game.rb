@@ -1,6 +1,5 @@
 class Game < ActiveRecord::Base
-  has_and_belongs_to_many :players
-  has_and_belongs_to_many :players, uniq: true
+  has_and_belongs_to_many :players, -> { uniq }
   before_save :set_game_size
   before_save :add_current_player
 
@@ -21,6 +20,10 @@ class Game < ActiveRecord::Base
   # than game_size associated with this game
   def is_full?
     game_size && (players.count < game_size)
+  end
+
+  def save
+    binding.pry
   end
 
 end

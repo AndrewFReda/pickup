@@ -5,9 +5,10 @@ class CreateGames < ActiveRecord::Migration
       t.string :sport
       t.string :location
       t.string :location_name
-      t.datetime :date_time 
-      t.integer :game_size 
+      t.integer :num_players 
       t.integer :admin_id
+      t.integer :when
+
       t.timestamps
       
     end

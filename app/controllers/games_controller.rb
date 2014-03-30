@@ -10,13 +10,13 @@ class GamesController < ApplicationController
   end
 
   def new
+    # TODO make when parameter required / figure out how to convert datetime to unix before form sends
     @game = Game.new
   end
 
   def create
     @game = Game.new game_params
     if @game.save
-      binding.pry
       redirect_to game_path(id: @game.id)
     else
       render new_game_path
@@ -29,7 +29,6 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find params[:id]
-    binding.pry
     if @game.update game_params
       redirect_to url_for(controller: :players, action: :manage_games, id: @game.admin_id)
     else
@@ -48,7 +47,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:sport, :location, :location_name, :date_time, :game_size, :admin_id, :player_ids => [])
+    params.require(:game).permit(:sport, :location, :location_name, :when, :num_players, :admin_id, :player_ids => [])
   end
 
 end

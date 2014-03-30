@@ -10,10 +10,10 @@
   </tr>
   <% @games.each do |game| %>
   <tr>
-    <td> <%= "#{game.date_time.day}/#{game.date_time.month}" %> </td>
-    <td> <%= "#{game.date_time.hour}:#{game.date_time.min}" %> </td>
+    <td> <%= "#{game.to_date_time.day}/#{game.to_date_time.month}" %> </td>
+    <td> <%= "#{game.to_date_time.hour}:#{game.to_date_time.min}" %> </td>
     <td> <%= "#{game.location_name}" %> </td>
-    <td> <%= "#{game.game_size - game.players.count}" %> </td>
+    <td> <%= "#{game.num_players - game.players.count}" %> </td>
     <td>
       <% if !game.has_player(current_user.player) %>
         <%= button_to 'Join Game', url_for(controller: :players, action: :join_game, id: current_user.player.id, game_id: game.id) %>

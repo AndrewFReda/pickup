@@ -3,7 +3,8 @@
 <%= simple_form_for @game do |f| %>
   <%= "Match Details" %>
   <%= f.input :sport, collection: ["basketball", "football", "hockey"] %>
-  <%= f.input :date_time %>
+  <%= f.input :when %>
+  <%= f.input :num_players %>
   <%= f.input :location_name %>
   <div style='width: 800px;'>
     <div id="geolocation" style='width: 500px; height: 400px;'></div>

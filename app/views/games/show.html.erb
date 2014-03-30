@@ -10,8 +10,8 @@
     <td> <%= "#{@game.location_name}" %> </td>
   </tr>
   <tr>
-    <td> DateTime: </td>
-    <td> <%= "#{@game.date_time}" %> </td>
+    <td> When: </td>
+    <td> <%= "#{@game.to_date_time}" %> </td>
   </tr>
   <tr>
     <td> Players: </td>
@@ -21,7 +21,7 @@
   </tr>
   <tr>
     <td> Max Game Size: </td>
-    <td> <%= "#{@game.game_size}" %> </td>
+    <td> <%= "#{@game.num_players}" %> </td>
   </tr>
   <tr>
     <% if !@game.is_full? %>
